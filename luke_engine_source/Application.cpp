@@ -1,4 +1,5 @@
 #include "Application.h"
+#include "Input.h"
 
 namespace luke {
 	Application::Application() : mHwnd(nullptr), mHdc(nullptr) {
@@ -10,6 +11,7 @@ namespace luke {
 		mHdc = GetDC(mHwnd);
 
 		mPlayer.SetPosition(0.0f, 0.0f);
+		Input::Initialize();
 	}
 	void Application::Run() {
 		Update();
@@ -18,6 +20,7 @@ namespace luke {
 
 	}
 	void Application::Update() {
+		Input::Update();
 		mPlayer.Update();
 	}
 	void Application::LateUpdate() {

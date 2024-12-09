@@ -1,5 +1,6 @@
 #pragma once
 #include "Commoninclude.h"
+#include "Input.h"
 namespace luke {
 	class GameObject
 	{
