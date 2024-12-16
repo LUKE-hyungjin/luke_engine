@@ -9,7 +9,7 @@ namespace luke {
 		~GameObject();
 		void Update();
 		void LastUpdate();
-		void Render(HDC mHdc);
+		void Render(HDC hdc);
 
 		void SetPosition(float x, float y) {
 			mX = x;
