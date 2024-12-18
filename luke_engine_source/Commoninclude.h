@@ -3,3 +3,5 @@
 #include <algorithm>
 #include <vector>
 #include <list>
+#include <string>
+#include <map>

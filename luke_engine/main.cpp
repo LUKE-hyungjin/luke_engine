@@ -4,6 +4,7 @@
 #include "framework.h"
 #include "luke_engine.h"
 #include "..//luke_engine_source/Application.h"
+#include "..//luke_engine_window/LoadScenes.h"
 
 luke::Application application;
 
@@ -124,6 +125,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
+
+   //load scenes
+   luke::LoadScene();
 
    return TRUE;
 }
