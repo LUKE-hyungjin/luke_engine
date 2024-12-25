@@ -6,7 +6,7 @@
 #include <string>
 #include <map>
 
-#include "lukeMath.h"
+#include "LukeMath.h"
 
 #include <mmsystem.h>
 #include <dinput.h>
