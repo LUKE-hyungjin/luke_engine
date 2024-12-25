@@ -1,11 +1,13 @@
 #include "GameObject.h"
 #include "Input.h"
 #include "Time.h"
+#include "Transform.h"
 
 namespace luke {
 
 	GameObject::GameObject()
 	{
+		initializeTransform();
 	}
 
 	GameObject::~GameObject()
@@ -48,8 +50,10 @@ namespace luke {
 		{
 			comp->Render(hdc);
 		}
-
-
+	}
+	void GameObject::initializeTransform()
+	{
+		AddComponent<Transform>();
 	}
 
 

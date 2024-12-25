@@ -57,6 +57,7 @@
       <Filter>Common</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)Layer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Object.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">

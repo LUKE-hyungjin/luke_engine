@@ -6,6 +6,7 @@
 #include "Input.h"
 #include "TitleScene.h"
 #include "SceneManager.h"
+#include "Object.h"
 
 namespace luke {
 	PlayScene::PlayScene() {
@@ -15,22 +16,14 @@ namespace luke {
 
 	}
 	void PlayScene::Initialize() {
-		{
-			bg = new Player();
-			Transform* tr
-				= bg->AddComponent<Transform>();
-			tr->SetPos(Vector2(0, 0));
+		bg = object::Instantiate<Player>
+			(enums::eLayerType::BackGround, Vector2(100.0f, 100.0f));
+		SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
+		sr->ImageLoad(L"D:\\dev\\luke_engine\\Resources\\CloudOcean.png");
 
-			tr->SetName(L"TR");
+		// 게임 오브젝트 생성후에 레이어와 게임오브젝트들의 init함수를 호출
+		Scene::Initialize();
 
-			SpriteRenderer* sr
-				= bg->AddComponent<SpriteRenderer>();
-			sr->SetName(L"SR");
-			sr->ImageLoad(L"D:\\dev\\luke_engine\\Resources\\CloudOcean.png");
-
-
-			AddGameObject(bg, eLayerType::BackGround);
-		}
 	}
 	void PlayScene::Update() {
 		Scene::Update();
@@ -55,6 +48,6 @@ namespace luke {
 	void PlayScene::OnExit()
 	{
 		Transform* tr = bg->GetComponent<Transform>();
-		tr->SetPos(Vector2(0, 0));
+		tr->SetPosition(Vector2(0, 0));
 	}
 }

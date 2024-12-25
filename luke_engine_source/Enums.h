@@ -1,5 +1,5 @@
 #pragma once
-namespace luke
+namespace luke::enums
 {
 	enum class eLayerType
 	{
