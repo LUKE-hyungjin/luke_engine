@@ -21,7 +21,7 @@ namespace luke
 	}
 	void Scene::LateUpdate() {
 		for (GameObject* gmaeObj : mGameObject) {
-			gmaeObj->LastUpdate();
+			gmaeObj->LateUpdate();
 		}
 	}
 	void Scene::Render(HDC hdc) {

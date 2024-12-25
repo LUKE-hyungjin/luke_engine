@@ -1,28 +1,46 @@
 #pragma once
 #include "Commoninclude.h"
 #include "Input.h"
+#include "Component.h"
+
 namespace luke {
 	class GameObject
 	{
 	public:
 		GameObject();
 		~GameObject();
-		void Update();
-		void LastUpdate();
-		void Render(HDC hdc);
 
-		void SetPosition(float x, float y) {
-			mX = x;
-			mY = y;
+		virtual void Initialize();
+		virtual void Update();
+		virtual void LateUpdate();
+		virtual void Render(HDC hdc);
+
+		template <typename T>
+		T* AddComponent()
+		{
+			T* comp = new T();
+			comp->SetOwner(this);
+			mComponents.push_back(comp);
+
+			return comp;
 		}
-		float GetPositionX() { return mX; }
-		float GetPositionY() { return mY; }
 
+		template <typename T>
+		T* GetComponent()
+		{
+			T* component = nullptr;
+			for (Component* comp : mComponents)
+			{
+				component = dynamic_cast<T*>(comp);
+				if (component)
+					break;
+			}
+
+			return component;
+		}
 
 	private:
-		float mX;
-		float mY;
-
+		std::vector<Component*> mComponents;
 	};
 }
 
