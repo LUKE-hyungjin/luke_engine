@@ -13,38 +13,20 @@ namespace luke {
 	}
 	void PlayScene::Initialize() {
 		{
-			Player* pl = new Player();
+			Player* bg = new Player();
 			Transform* tr
-				= pl->AddComponent<Transform>();
-			tr->SetPos(800, 450);
-			tr->SetName(L"TR");
-			SpriteRenderer* sr
-				= pl->AddComponent<SpriteRenderer>();
-			sr->SetName(L"SR");
-			AddGameObject(pl);
-		}
+				= bg->AddComponent<Transform>();
+			tr->SetPos(Vector2(0, 0));
 
-		{
-			Player* pl = new Player();
-			Transform* tr
-				= pl->AddComponent<Transform>();
-			tr->SetPos(300, 450);
 			tr->SetName(L"TR");
+
 			SpriteRenderer* sr
-				= pl->AddComponent<SpriteRenderer>();
+				= bg->AddComponent<SpriteRenderer>();
 			sr->SetName(L"SR");
-			AddGameObject(pl);
-		}
-		{
-			Player* pl = new Player();
-			Transform* tr
-				= pl->AddComponent<Transform>();
-			tr->SetPos(100, 650);
-			tr->SetName(L"TR");
-			SpriteRenderer* sr
-				= pl->AddComponent<SpriteRenderer>();
-			sr->SetName(L"SR");
-			AddGameObject(pl);
+			sr->ImageLoad(L"D:\\dev\\luke_engine\\Resources\\CloudOcean.png");
+
+
+			AddGameObject(bg);
 		}
 	}
 	void PlayScene::Update() {

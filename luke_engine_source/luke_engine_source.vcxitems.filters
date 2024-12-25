@@ -21,6 +21,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)SceneManager.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)lukeMath.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Resources.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Resource.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Application.h" />
@@ -46,6 +49,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)SceneManager.h">
       <Filter>Scene</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)lukeMath.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Resources.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Resource.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">

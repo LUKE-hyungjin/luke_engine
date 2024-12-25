@@ -8,6 +8,9 @@
 
 luke::Application application;
 
+ULONG_PTR gpToken;
+Gdiplus::GdiplusStartupInput gpsi;
+
 #define MAX_LOADSTRING 100
 
 // 전역 변수:
@@ -65,7 +68,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
             application.Run();
         }
     }
-
+    Gdiplus::GdiplusShutdown(gpToken);
 
     return (int) msg.wParam;
 }
@@ -111,8 +114,8 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
 BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
-   const UINT width = 1600;
-   const UINT height = 900;
+   const UINT width = 1269;
+   const UINT height = 945;
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, width, height, nullptr, nullptr, hInstance, nullptr);
 
@@ -125,6 +128,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
+
+   Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
 
    //load scenes
    luke::LoadScene();
