@@ -40,7 +40,7 @@ namespace luke {
 		SceneManager::Update();
 	}
 	void Application::LateUpdate() {
-
+		SceneManager::LateUpdate();
 	}
 	void Application::Render() {
 

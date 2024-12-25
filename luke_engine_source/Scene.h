@@ -1,6 +1,8 @@
 #pragma once
 #include "Entity.h"
 #include "GameObject.h"
+#include "Layer.h"
+
 namespace luke {
 	class Scene: public Entity
 	{
@@ -12,11 +14,15 @@ namespace luke {
 		virtual void Update();
 		virtual void LateUpdate();
 		virtual void Render(HDC hdc);
-
-		void AddGameObject(GameObject* gameobject);
+		virtual void OnEnter();
+		virtual void OnExit();
+		void AddGameObject(GameObject* gameObj, const eLayerType type);
 
 	private:
-		std::vector<GameObject*> mGameObject;
+		void CreateLayers();
+
+	private:
+		std::vector<Layer*> mLayers;
 
 	};
 }

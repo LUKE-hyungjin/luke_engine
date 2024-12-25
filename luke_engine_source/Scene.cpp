@@ -3,34 +3,75 @@
 namespace luke
 {
 	Scene::Scene()
-		:mGameObject{}
+		: mLayers{}
 	{
-
+		CreateLayers();
 	}
 	Scene::~Scene()
 	{
-
 	}
-	void Scene::Initialize() {
-
-	}
-	void Scene::Update() {
-		for (GameObject* gmaeObj : mGameObject) {
-			gmaeObj->Update();
-		}
-	}
-	void Scene::LateUpdate() {
-		for (GameObject* gmaeObj : mGameObject) {
-			gmaeObj->LateUpdate();
-		}
-	}
-	void Scene::Render(HDC hdc) {
-		for (GameObject* gmaeObj : mGameObject) {
-			gmaeObj->Render(hdc);
-		}
-	}
-	void Scene::AddGameObject(GameObject* gameObject)
+	void Scene::Initialize()
 	{
-		mGameObject.push_back(gameObject);
+		for (Layer* layer : mLayers)
+		{
+			if (layer == nullptr)
+				continue;
+
+			layer->Initialize();
+		}
+	}
+	void Scene::Update()
+	{
+		for (Layer* layer : mLayers)
+		{
+			if (layer == nullptr)
+				continue;
+
+			layer->Update();
+		}
+	}
+	void Scene::LateUpdate()
+	{
+		for (Layer* layer : mLayers)
+		{
+			if (layer == nullptr)
+				continue;
+
+			layer->LateUpdate();
+		}
+	}
+	void Scene::Render(HDC hdc)
+	{
+		for (Layer* layer : mLayers)
+		{
+			if (layer == nullptr)
+				continue;
+
+			layer->Render(hdc);
+		}
+	}
+
+	void Scene::AddGameObject(GameObject* gameObj, const eLayerType type)
+	{
+		mLayers[(UINT)type]->AddGameObject(gameObj);
+	}
+
+	void Scene::CreateLayers()
+	{
+		mLayers.resize((UINT)eLayerType::Max);
+		for (size_t i = 0; i < (UINT)eLayerType::Max; i++)
+		{
+			mLayers[i] = new Layer();
+		}
+	}
+
+	void Scene::OnEnter()
+	{
+
+	}
+
+	void Scene::OnExit()
+	{
+
 	}
 }
