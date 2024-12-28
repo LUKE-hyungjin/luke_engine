@@ -7,6 +7,8 @@
 #include "TitleScene.h"
 #include "SceneManager.h"
 #include "Object.h"
+#include "Texture.h"
+#include "Resources.h"
 
 namespace luke {
 	PlayScene::PlayScene() {
@@ -17,10 +19,10 @@ namespace luke {
 	}
 	void PlayScene::Initialize() {
 		bg = object::Instantiate<Player>
-			(enums::eLayerType::BackGround, Vector2(100.0f, 100.0f));
+			(enums::eLayerType::BackGround);
 		SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
-		sr->ImageLoad(L"D:\\dev\\luke_engine\\Resources\\CloudOcean.png");
-
+		graphcis::Texture* bg = Resources::Find<graphcis::Texture>(L"BG");
+		sr->SetTexture(bg);
 		// 게임 오브젝트 생성후에 레이어와 게임오브젝트들의 init함수를 호출
 		Scene::Initialize();
 

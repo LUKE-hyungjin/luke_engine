@@ -5,6 +5,7 @@
 #include "luke_engine.h"
 #include "..//luke_engine_source/Application.h"
 #include "..//luke_engine_window/LoadScenes.h"
+#include "..//luke_engine_window/LoadResources.h"
 
 luke::Application application;
 
@@ -132,6 +133,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
 
    //load scenes
+   luke::LoadResources();
    luke::LoadScene();
 
    return TRUE;

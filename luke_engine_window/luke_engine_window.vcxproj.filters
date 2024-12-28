@@ -18,7 +18,10 @@
     <ClInclude Include="PlayScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="TitleScene.h" />
+    <ClInclude Include="TitleScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadResources.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Player.cpp">
@@ -27,6 +30,8 @@
     <ClCompile Include="PlayScene.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="TitleScene.cpp" />
+    <ClCompile Include="TitleScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
