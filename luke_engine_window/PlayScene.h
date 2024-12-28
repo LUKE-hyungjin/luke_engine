@@ -17,7 +17,7 @@ namespace luke {
 		void OnExit()  override;
 
 	private:
-		class Player* bg;
+		class Player* mPlayer;
 	};
 }
 

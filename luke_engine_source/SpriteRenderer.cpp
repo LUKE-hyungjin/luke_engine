@@ -2,10 +2,11 @@
 #include "GameObject.h"
 #include "Transform.h"
 #include "Texture.h"
+#include "Renderer.h"
 
 namespace luke {
 	SpriteRenderer::SpriteRenderer()
-		: Component()
+		: Component(enums::eComponentType::SpriteRenderer)
 		, mTexture(nullptr)
 		, mSize(Vector2::One)
 	{
@@ -28,6 +29,7 @@ namespace luke {
 			assert(false);
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
+		pos = renderer::mainCamera->CaluatePosition(pos);
 		if (mTexture->GetTextureType()
 			== graphcis::Texture::eTextureType::Bmp)
 		{
