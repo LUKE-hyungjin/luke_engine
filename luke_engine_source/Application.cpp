@@ -2,6 +2,7 @@
 #include "Input.h"
 #include "Time.h"
 #include "SceneManager.h"
+#include "Resources.h"
 
 namespace luke {
 	Application::Application() 
@@ -50,6 +51,12 @@ namespace luke {
 		SceneManager::Render(mBackHdc);
 
 		copyRenderTarget(mBackHdc, mHdc);
+	}
+
+	void Application::Release()
+	{
+		SceneManager::Release();
+		Resources::Release();
 	}
 
 	void Application::adjustWindowRect(HWND hwnd, UINT width, UINT height) {
