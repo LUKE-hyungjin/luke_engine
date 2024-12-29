@@ -1,5 +1,7 @@
 #pragma once
 #include "CommonInclude.h"
+using namespace luke::math;
+
 namespace luke {
 	class Entity
 	{

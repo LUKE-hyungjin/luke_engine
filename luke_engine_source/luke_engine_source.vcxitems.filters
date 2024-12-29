@@ -49,6 +49,8 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Script.cpp">
       <Filter>Component\Script</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Animation.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Animator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Input.h" />
@@ -108,6 +110,8 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Script.h">
       <Filter>Component\Script</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Animation.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Animator.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">

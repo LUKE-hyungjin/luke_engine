@@ -14,6 +14,7 @@ namespace luke::enums
 	enum class eResourceType {
 		Texture,
 		AudioClip,
+		Animation,
 		Prefab,
 		End,
 	};
@@ -22,6 +23,7 @@ namespace luke::enums
 	{
 		Transform,
 		SpriteRenderer,
+		Animator,
 		Script,
 		Camera,
 		End,
