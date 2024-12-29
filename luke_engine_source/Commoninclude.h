@@ -6,6 +6,7 @@
 #include <vector>
 #include <string>
 #include <map>
+#include <functional>
 
 #include "LukeMath.h"
 
