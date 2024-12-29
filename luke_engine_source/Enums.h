@@ -8,6 +8,7 @@ namespace luke::enums
 		//Tree 
 		//character
 		Player,
+		Particle,
 		Max = 16,
 	};
 
