@@ -136,6 +136,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    luke::LoadResources();
    luke::LoadScene();
 
+   int a = 0;
+   srand((unsigned int)(&a));
+
    return TRUE;
 }
 

@@ -7,6 +7,7 @@ namespace luke::enums
 		BackGround,
 		//Tree 
 		//character
+		Animal,
 		Player,
 		Particle,
 		Max = 16,
