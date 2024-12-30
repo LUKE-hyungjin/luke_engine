@@ -26,7 +26,7 @@ namespace luke
 		mDeathTime += Time::DeltaTime();
 		if (mDeathTime > 6.0f)
 		{
-			//object::Destory(GetOwner());
+			object::Destory(GetOwner());
 		}
 		if (mAnimator == nullptr)
 		{

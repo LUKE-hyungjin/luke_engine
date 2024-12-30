@@ -3,6 +3,15 @@
 #include "LukeTime.h"
 #include "Transform.h"
 
+namespace luke::object
+{
+	void Destory(GameObject* gameObject)
+	{
+		if (gameObject != nullptr)
+			gameObject->death();
+	}
+}
+
 namespace luke {
 
 	GameObject::GameObject()

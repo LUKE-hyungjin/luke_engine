@@ -3,11 +3,16 @@
 #include "Input.h"
 #include "Component.h"
 
+namespace luke::object
+{
+	void Destory(GameObject* gameObject);
+}
+
 namespace luke {
 	class GameObject
 	{
 	public:
-
+		friend void object::Destory(GameObject* obj);
 		enum class eState
 		{
 			Active,
@@ -48,16 +53,18 @@ namespace luke {
 
 			return component;
 		}
-		eState GetActive() { return mState; }
+		eState GetState() { return mState; }
 		void SetActive(bool power)
 		{
 			if (power == true) mState = eState::Active;
 			if (power == false) mState = eState::Paused;
 		}
-		void Death() { mState = eState::Dead; }
+		bool IsActive() { return mState == eState::Active; }
+		bool IsDead() { return mState == eState::Dead; }
 
 	private:
 		void initializeTransform();
+		void death() { mState = eState::Dead; }
 
 	private:
 		eState mState;
