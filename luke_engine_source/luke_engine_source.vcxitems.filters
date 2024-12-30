@@ -51,7 +51,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Input.cpp">
       <Filter>Helpers</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)Time.cpp">
+    <ClCompile Include="$(MSBuildThisFileDirectory)LukeTime.cpp">
       <Filter>Helpers</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)Renderer.cpp">
@@ -118,7 +118,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Input.h">
       <Filter>Helpers</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)Time.h">
+    <ClInclude Include="$(MSBuildThisFileDirectory)LukeTime.h">
       <Filter>Helpers</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)Renderer.h">

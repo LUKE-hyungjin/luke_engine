@@ -1,7 +1,7 @@
 #include "Cat.h"
 #include "Input.h"
 #include "Transform.h"
-#include "Time.h"
+#include "LukeTime.h"
 namespace luke
 {
 	void Cat::Initialize()

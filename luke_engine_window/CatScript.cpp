@@ -1,15 +1,18 @@
 #include "CatScript.h"
 #include "Input.h"
 #include "Transform.h"
-#include "Time.h"
+#include "LukeTime.h"
 #include "GameObject.h"
 #include "Animator.h"
+#include "Object.h"
+
 namespace luke
 {
 	CatScript::CatScript()
 		: mState(CatScript::eState::SitDown)
 		, mAnimator(nullptr)
 		, mTime(0.0f)
+		, mDeathTime(0.0f)
 	{
 	}
 	CatScript::~CatScript()
@@ -20,6 +23,11 @@ namespace luke
 	}
 	void CatScript::Update()
 	{
+		mDeathTime += Time::DeltaTime();
+		if (mDeathTime > 6.0f)
+		{
+			//object::Destory(GetOwner());
+		}
 		if (mAnimator == nullptr)
 		{
 			mAnimator = GetOwner()->GetComponent<Animator>();

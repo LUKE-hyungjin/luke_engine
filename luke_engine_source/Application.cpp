@@ -1,6 +1,6 @@
 #include "Application.h"
 #include "Input.h"
-#include "Time.h"
+#include "LukeTime.h"
 #include "SceneManager.h"
 #include "Resources.h"
 
@@ -34,6 +34,8 @@ namespace luke {
 		LateUpdate();
 		Render();
 
+		Destroy();
+
 	}
 	void Application::Update() {
 		Input::Update();
@@ -51,6 +53,11 @@ namespace luke {
 		SceneManager::Render(mBackHdc);
 
 		copyRenderTarget(mBackHdc, mHdc);
+	}
+
+	void Application::Destroy()
+	{
+		SceneManager::Destroy();
 	}
 
 	void Application::Release()

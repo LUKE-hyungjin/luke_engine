@@ -1,11 +1,12 @@
 #include "GameObject.h"
 #include "Input.h"
-#include "Time.h"
+#include "LukeTime.h"
 #include "Transform.h"
 
 namespace luke {
 
 	GameObject::GameObject()
+		: mState(eState::Active)
 	{
 		mComponents.resize((UINT)enums::eComponentType::End);
 		initializeTransform();

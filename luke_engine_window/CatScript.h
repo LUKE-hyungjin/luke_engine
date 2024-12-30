@@ -40,5 +40,6 @@ namespace luke
 		class Animator* mAnimator;
 		eDirection mDirection;
 		float mTime;
+		float mDeathTime;
 	};
 }
