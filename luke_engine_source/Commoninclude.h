@@ -9,7 +9,6 @@
 #include <functional>
 #include <filesystem>
 
-#include "LukeMath.h"
 
 #include <mmsystem.h>
 #include <dinput.h>
@@ -20,3 +19,4 @@
 #pragma comment(lib, "gdiplus.lib")
 
 #include "Enums.h"
+#include "LukeMath.h"
