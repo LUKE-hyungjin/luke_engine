@@ -7,6 +7,7 @@ namespace luke
 	{
 	public:
 		Vector2 CaluatePosition(Vector2 pos) { return pos - mDistance; };
+		Vector2 CaluateTilePosition(Vector2 pos) { return pos + mDistance; };
 		Camera();
 		~Camera();
 		void Initialize() override;

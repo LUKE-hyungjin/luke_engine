@@ -1,7 +1,7 @@
 #include "Tile.h"
 #include "Input.h"
 #include "Transform.h"
-#include "Time.h"
+#include "LukeTime.h"
 #include "TilemapRenderer.h"
 
 namespace luke
@@ -22,7 +22,7 @@ namespace luke
 	{
 		GameObject::Render(hdc);
 	}
-	void Tile::SetPosition(int x, int y)
+	void Tile::SetIndexPosition(int x, int y)
 	{
 		Transform* tr = GetComponent<Transform>();
 		Vector2 pos;

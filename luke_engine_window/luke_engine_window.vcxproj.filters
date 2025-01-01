@@ -36,6 +36,7 @@
     </ClInclude>
     <ClInclude Include="Tile.h" />
     <ClInclude Include="ToolScene.h" />
+    <ClInclude Include="CameraScript.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Player.cpp">
@@ -58,5 +59,6 @@
     </ClCompile>
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="ToolScene.cpp" />
+    <ClCompile Include="CameraScript.cpp" />
   </ItemGroup>
 </Project>

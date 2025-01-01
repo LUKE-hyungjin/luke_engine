@@ -18,6 +18,8 @@
 #include "BoxCollider2D.h"
 #include "CircleCollider2D.h"
 #include "CollisionManager.h"
+#include "Tile.h"
+#include "TilemapRenderer.h"
 
 namespace luke {
 	PlayScene::PlayScene() {
@@ -27,6 +29,30 @@ namespace luke {
 
 	}
 	void PlayScene::Initialize() {
+		FILE* pFile = nullptr;
+		_wfopen_s(&pFile, L"..\\Resources\\Test", L"rb");
+
+		while (true)
+		{
+			int idxX = 0;
+			int idxY = 0;
+			int posX = 0;
+			int posY = 0;
+			if (fread(&idxX, sizeof(int), 1, pFile) == NULL)
+				break;
+			if (fread(&idxY, sizeof(int), 1, pFile) == NULL)
+				break;
+			if (fread(&posX, sizeof(int), 1, pFile) == NULL)
+				break;
+			if (fread(&posY, sizeof(int), 1, pFile) == NULL)
+				break;
+			Tile* tile = object::Instantiate<Tile>(eLayerType::Tile, Vector2(posX, posY));
+			TilemapRenderer* tmr = tile->AddComponent<TilemapRenderer>();
+			tmr->SetTexture(Resources::Find<graphics::Texture>(L"SpringFloor"));
+			tmr->SetIndex(Vector2(idxX, idxY));
+			//mTiles.push_back(tile);
+		}
+		fclose(pFile);
 		CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Animal, true);
 		// main camera
 		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::Particle, Vector2(344.0f, 442.0f));

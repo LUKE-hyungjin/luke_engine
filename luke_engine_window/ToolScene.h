@@ -1,5 +1,6 @@
 #pragma once
 #include "..\\luke_engine_source\\Scene.h"
+#include "Tile.h"
 namespace luke
 {
 	class ToolScene : public Scene
@@ -13,6 +14,11 @@ namespace luke
 		void Render(HDC hdc) override;
 		void OnEnter() override;
 		void OnExit()  override;
+		void Save();
+		void Load();
+
+	private:
+		std::vector<Tile*> mTiles;
 
 	};
 }

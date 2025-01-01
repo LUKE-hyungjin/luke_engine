@@ -1,16 +1,17 @@
 #pragma once
-#include "..\\luke_engine_source\\GameObject.h"
+#include "..\\luke_engine_source\\Script.h"
+#include "..\\luke_engine_source\\Transform.h"
 namespace luke
 {
-	class Tile : public GameObject
+	class CameraScript : public Script
 	{
 	public:
+		CameraScript();
+		~CameraScript();
 		void Initialize() override;
 		void Update() override;
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
-
-		void SetIndexPosition(int x, int y);
 	private:
 	};
 }
