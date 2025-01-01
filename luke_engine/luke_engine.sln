@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "luke_engine_window", "..\lu
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "luke_engine_source", "..\luke_engine_source\luke_engine_source.vcxitems", "{44918024-E8D6-4FCD-9469-38DFF08CED9F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Shaders_SOURCE", "..\Shaders_SOURCE\Shaders_SOURCE.vcxitems", "{CE08EE91-17FB-4048-AC37-6CA5FF49E944}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -43,5 +45,6 @@ Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		..\luke_engine_source\luke_engine_source.vcxitems*{44918024-e8d6-4fcd-9469-38dff08ced9f}*SharedItemsImports = 9
 		..\luke_engine_source\luke_engine_source.vcxitems*{968b9249-6a3e-450b-ae4d-a46d5e8c525b}*SharedItemsImports = 4
+		..\Shaders_SOURCE\Shaders_SOURCE.vcxitems*{ce08ee91-17fb-4048-ac37-6ca5ff49e944}*SharedItemsImports = 9
 	EndGlobalSection
 EndGlobal
