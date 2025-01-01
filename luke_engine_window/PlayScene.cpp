@@ -16,6 +16,7 @@
 #include "Cat.h"
 #include "CatScript.h"
 #include "BoxCollider2D.h"
+#include "CircleCollider2D.h"
 #include "CollisionManager.h"
 
 namespace luke {
@@ -34,7 +35,7 @@ namespace luke {
 
 		mPlayer = object::Instantiate<Player>(enums::eLayerType::Player);
 		PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>();
-		BoxCollider2D* collider = mPlayer->AddComponent<BoxCollider2D>();
+		CircleCollider2D* collider = mPlayer->AddComponent<CircleCollider2D>();
 		collider->SetOffset(Vector2(-50.0f, -50.0));
 	
 		graphcis::Texture* playerTex = Resources::Find<graphcis::Texture>(L"Player");
@@ -54,7 +55,7 @@ namespace luke {
 		//cameraComp->SetTarget(cat);
 		graphcis::Texture* catTex = Resources::Find<graphcis::Texture>(L"Cat");
 		Animator* catAnimator = cat->AddComponent<Animator>();
-		BoxCollider2D* boxCatCollider = cat->AddComponent<BoxCollider2D>();
+		CircleCollider2D* boxCatCollider = cat->AddComponent<CircleCollider2D>();
 		boxCatCollider->SetOffset(Vector2(-50.0f, -50.0f));
 
 		catAnimator->CreateAnimationByFolder(L"MushroomIdle", L"..\\Resources\\Mushroom", Vector2::Zero, 0.1f);
@@ -85,10 +86,10 @@ namespace luke {
 	}
 	void PlayScene::OnEnter()
 	{
+		Scene::OnEnter();
 	}
 	void PlayScene::OnExit()
 	{
-		//Transform* tr = bg->GetComponent<Transform>();
-		//tr->SetPosition(Vector2(0, 0));
+		Scene::OnExit();
 	}
 }

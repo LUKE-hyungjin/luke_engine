@@ -34,4 +34,12 @@ namespace luke
 		wchar_t str[50] = L"Title Scene";
 		TextOut(hdc, 0, 0, str, 11);
 	}
+	void TitleScene::OnEnter()
+	{
+		Scene::OnEnter();
+	}
+	void TitleScene::OnExit()
+	{
+		Scene::OnExit();
+	}
 }

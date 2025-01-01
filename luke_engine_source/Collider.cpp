@@ -5,8 +5,9 @@
 namespace luke
 {
 	UINT Collider::CollisionID = 1;
-	Collider::Collider()
+	Collider::Collider(eColliderType type)
 		: Component(enums::eComponentType::Colider)
+		, mType(type)
 		, mID(CollisionID++)
 		, mSize(Vector2::One)
 	{

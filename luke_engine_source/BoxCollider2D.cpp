@@ -1,10 +1,13 @@
 #include "BoxCollider2D.h"
 #include "Transform.h"
 #include "GameObject.h"
+#include "Renderer.h"
+#include "Camera.h"
+
 namespace luke
 {
 	BoxCollider2D::BoxCollider2D()
-		: Collider()
+		: Collider(enums::eColliderType::Rect2D)
 	{
 	}
 	BoxCollider2D::~BoxCollider2D()
@@ -23,6 +26,8 @@ namespace luke
 	{
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		Vector2 pos = tr->GetPosition();
+		if (renderer::mainCamera)
+			pos = renderer::mainCamera->CaluatePosition(pos);
 		Vector2 offset = GetOffset();
 		HBRUSH transparentBrush = (HBRUSH)GetStockObject(NULL_BRUSH);
 		HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, transparentBrush);

@@ -1,5 +1,6 @@
 #pragma once
 #include "Collider.h"
+
 namespace luke
 {
 	class BoxCollider2D : public Collider
