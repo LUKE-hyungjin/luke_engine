@@ -62,7 +62,7 @@ namespace luke
 	{
 		std::vector<GameObject*> deleteObjects = {};
 		findDeadGameObjects(deleteObjects);
-		eraseGameObject();
+		eraseDeadGameObject();
 		deleteGameObjects(deleteObjects);
 	}
 
@@ -71,6 +71,15 @@ namespace luke
 		if (gameObject == nullptr)
 			return;
 		mGameObjects.push_back(gameObject);
+	}
+	void Layer::EraseGameObject(GameObject* eraseGameObj)
+	{
+		// std::erase() iter넣어줘서 해당 이터레이와 같은 객체 삭제
+		std::erase_if(mGameObjects,
+			[=](GameObject* gameObj)
+			{
+				return gameObj == eraseGameObj;
+			});
 	}
 	void Layer::findDeadGameObjects(OUT std::vector<GameObject*>& gameObjs)
 	{
@@ -89,7 +98,7 @@ namespace luke
 			obj = nullptr;
 		}
 	}
-	void Layer::eraseGameObject()
+	void Layer::eraseDeadGameObject()
 	{
 		std::erase_if(mGameObjects,
 			[](GameObject* gameObj)

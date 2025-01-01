@@ -19,6 +19,7 @@ namespace luke {
 		virtual void OnEnter();
 		virtual void OnExit();
 		void AddGameObject(GameObject* gameObj, const enums::eLayerType type);
+		void EraseGameObject(GameObject* gameObj);
 		Layer* GetLayer(const enums::eLayerType type) { return mLayers[(UINT)type]; }
 
 	private:
