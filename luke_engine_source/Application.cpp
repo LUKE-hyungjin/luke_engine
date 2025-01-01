@@ -3,6 +3,7 @@
 #include "LukeTime.h"
 #include "SceneManager.h"
 #include "Resources.h"
+#include "CollisionManager.h"
 
 namespace luke {
 	Application::Application() 
@@ -26,6 +27,7 @@ namespace luke {
 
 		initializeEtc();
 
+		CollisionManager::Initialize();
 		SceneManager::Initialize();
 
 	}
@@ -40,9 +42,11 @@ namespace luke {
 	void Application::Update() {
 		Input::Update();
 		Time::Update();
+		CollisionManager::Update();
 		SceneManager::Update();
 	}
 	void Application::LateUpdate() {
+		CollisionManager::LateUpdate();
 		SceneManager::LateUpdate();
 	}
 	void Application::Render() {
@@ -50,6 +54,7 @@ namespace luke {
 		clearRenderTarget();
 
 		Time::Render(mBackHdc);
+		CollisionManager::Render(mBackHdc);
 		SceneManager::Render(mBackHdc);
 
 		copyRenderTarget(mBackHdc, mHdc);

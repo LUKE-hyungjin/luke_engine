@@ -16,6 +16,7 @@
 #include "Cat.h"
 #include "CatScript.h"
 #include "BoxCollider2D.h"
+#include "CollisionManager.h"
 
 namespace luke {
 	PlayScene::PlayScene() {
@@ -25,6 +26,7 @@ namespace luke {
 
 	}
 	void PlayScene::Initialize() {
+		CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Animal, true);
 		// main camera
 		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::Particle, Vector2(344.0f, 442.0f));
 		Camera* cameraComp = camera->AddComponent<Camera>();
