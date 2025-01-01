@@ -1,4 +1,5 @@
 #include "Scene.h"
+#include "CollisionManager.h"
 
 namespace luke
 {
@@ -92,6 +93,6 @@ namespace luke
 
 	void Scene::OnExit()
 	{
-
+		CollisionManager::Clear();
 	}
 }
