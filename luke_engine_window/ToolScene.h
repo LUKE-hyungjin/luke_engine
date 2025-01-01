@@ -16,6 +16,9 @@ namespace luke
 		void OnExit()  override;
 		void Save();
 		void Load();
+	private:
+		void renderGreed(HDC hdc);
+		void createTileObject();
 
 	private:
 		std::vector<Tile*> mTiles;
