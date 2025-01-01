@@ -27,6 +27,7 @@ namespace luke {
 
 		initializeEtc();
 		mGraphicDevice = std::make_unique<graphics::GraphicDevice_DX11>();
+		mGraphicDevice->Initialize();
 		CollisionManager::Initialize();
 		SceneManager::Initialize();
 
@@ -51,13 +52,13 @@ namespace luke {
 	}
 	void Application::Render() {
 
-		clearRenderTarget();
-
+		//clearRenderTarget();
+		mGraphicDevice->Draw();
 		Time::Render(mBackHdc);
 		CollisionManager::Render(mBackHdc);
 		SceneManager::Render(mBackHdc);
 
-		copyRenderTarget(mBackHdc, mHdc);
+		//copyRenderTarget(mBackHdc, mHdc);
 	}
 
 	void Application::Destroy()
