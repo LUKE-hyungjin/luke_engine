@@ -1,6 +1,6 @@
 #pragma once
 #include "Resource.h"
-namespace luke::graphcis
+namespace luke::graphics
 {
 	class Texture : public Resource
 	{

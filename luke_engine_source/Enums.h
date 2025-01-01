@@ -5,7 +5,7 @@ namespace luke::enums
 	{
 		None,
 		BackGround,
-		//Tree 
+		Tile,
 		//character
 		Animal,
 		Player,

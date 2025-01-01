@@ -26,7 +26,7 @@ namespace luke
 		void Update();
 		void Render(HDC hdc);
 		void CreateAnimation(const std::wstring& name
-			, graphcis::Texture* spriteSheet
+			, graphics::Texture* spriteSheet
 			, Vector2 leftTop
 			, Vector2 sizei
 			, Vector2 offset
@@ -37,7 +37,7 @@ namespace luke
 		void SetAnimator(class Animator* animator) { mAnimator = animator; }
 	private:
 		class Animator* mAnimator;
-		graphcis::Texture* mTexture;
+		graphics::Texture* mTexture;
 		std::vector<Sprite> mAnimationSheet;
 		int mIndex;
 		float mTime;

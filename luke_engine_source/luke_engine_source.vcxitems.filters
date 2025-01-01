@@ -71,6 +71,7 @@
       <Filter>Common</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)DontDestroyOnLoad.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)TilemapRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)GameObject.h">
@@ -149,6 +150,7 @@
       <Filter>Component\Collider</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)DontDestroyOnLoad.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)TilemapRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">

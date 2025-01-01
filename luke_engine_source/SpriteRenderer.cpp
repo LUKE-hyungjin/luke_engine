@@ -33,7 +33,7 @@ namespace luke {
 		Vector2 scale = tr->GetScale();
 		pos = renderer::mainCamera->CaluatePosition(pos);
 		if (mTexture->GetTextureType()
-			== graphcis::Texture::eTextureType::Bmp)
+			== graphics::Texture::eTextureType::Bmp)
 		{
 			if (mTexture->IsAlpha())
 			{
@@ -68,16 +68,16 @@ namespace luke {
 			}
 		}
 		else if (mTexture->GetTextureType()
-			== graphcis::Texture::eTextureType::Png)
+			== graphics::Texture::eTextureType::Png)
 		{
 			// 투명화 시킬 픽셀의 색 범위
 			Gdiplus::ImageAttributes imgAtt = {};
 			imgAtt.SetColorKey(Gdiplus::Color(230, 230, 230), Gdiplus::Color(255, 255, 255));
-			Gdiplus::Graphics graphcis(hdc);
-			graphcis.TranslateTransform(pos.x, pos.y);
-			graphcis.RotateTransform(rot);
-			graphcis.TranslateTransform(-pos.x, -pos.y);
-			graphcis.DrawImage(mTexture->GetImage()
+			Gdiplus::Graphics graphics(hdc);
+			graphics.TranslateTransform(pos.x, pos.y);
+			graphics.RotateTransform(rot);
+			graphics.TranslateTransform(-pos.x, -pos.y);
+			graphics.DrawImage(mTexture->GetImage()
 				, Gdiplus::Rect
 				(
 					pos.x, pos.y

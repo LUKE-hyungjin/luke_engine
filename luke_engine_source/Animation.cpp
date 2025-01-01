@@ -52,8 +52,8 @@ namespace luke
 		if (renderer::mainCamera)
 			pos = renderer::mainCamera->CaluatePosition(pos);
 		Sprite sprite = mAnimationSheet[mIndex];
-		graphcis::Texture::eTextureType type = mTexture->GetTextureType();
-		if (type == graphcis::Texture::eTextureType::Bmp)
+		graphics::Texture::eTextureType type = mTexture->GetTextureType();
+		if (type == graphics::Texture::eTextureType::Bmp)
 		{
 			HDC imgHdc = mTexture->GetHdc();
 			if (mTexture->IsAlpha())
@@ -91,7 +91,7 @@ namespace luke
 			}
 			Rectangle(hdc, pos.x, pos.y, pos.x + 10, pos.y + 10);
 		}
-		else if (type == graphcis::Texture::eTextureType::Png)
+		else if (type == graphics::Texture::eTextureType::Png)
 		{
 			// 내가 원하는 픽셀을 투명화 시킬
 			Gdiplus::ImageAttributes imgAtt = {};
@@ -118,7 +118,7 @@ namespace luke
 			);
 		}
 	}
-	void Animation::CreateAnimation(const std::wstring& name, graphcis::Texture* spriteSheet
+	void Animation::CreateAnimation(const std::wstring& name, graphics::Texture* spriteSheet
 		, Vector2 leftTop, Vector2 size, Vector2 offset, UINT spriteLegth, float duration)
 	{
 		mTexture = spriteSheet;

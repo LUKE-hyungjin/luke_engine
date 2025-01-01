@@ -143,7 +143,9 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerScript.h" />
     <ClInclude Include="PlayScene.h" />
+    <ClInclude Include="Tile.h" />
     <ClInclude Include="TitleScene.h" />
+    <ClInclude Include="ToolScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Cat.cpp" />
@@ -151,7 +153,9 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerScript.cpp" />
     <ClCompile Include="PlayScene.cpp" />
+    <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TitleScene.cpp" />
+    <ClCompile Include="ToolScene.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -4,7 +4,7 @@
 
 // 해당 전역변수가 존재함을 알리는 키워드 extern
 extern luke::Application application;
-namespace luke::graphcis
+namespace luke::graphics
 {
 	Texture* Texture::Create(const std::wstring& name, UINT width, UINT height)
 	{
