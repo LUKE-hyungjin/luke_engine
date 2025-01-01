@@ -2,6 +2,8 @@
 #include "Commoninclude.h"
 #include "Input.h"
 #include "Component.h"
+#include "Collider.h"
+
 
 namespace luke::object
 {
