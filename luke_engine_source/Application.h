@@ -1,6 +1,7 @@
 #pragma once
 #include "Commoninclude.h"
 #include "GameObject.h"
+#include "GraphicDevice_DX11.h"
 
 namespace luke
 {
@@ -31,6 +32,7 @@ namespace luke
 		void initializeEtc();
 
 	private:
+		std::unique_ptr<graphics::GraphicDevice_DX11> mGraphicDevice;
 		HWND mHwnd;
 		HDC mHdc;
 

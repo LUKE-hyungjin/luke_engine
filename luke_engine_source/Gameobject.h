@@ -11,7 +11,7 @@ namespace luke::object
 }
 
 namespace luke {
-	class GameObject
+	class GameObject : public Entity
 	{
 	public:
 		friend void object::Destory(GameObject* obj);

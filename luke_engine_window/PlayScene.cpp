@@ -21,6 +21,8 @@
 #include "Tile.h"
 #include "TilemapRenderer.h"
 #include "Rigidbody.h"
+#include "Floor.h"
+#include "FloorScript.h"
 
 namespace luke {
 	PlayScene::PlayScene() {
@@ -31,14 +33,14 @@ namespace luke {
 	}
 	void PlayScene::Initialize() {
 		// main camera
-		GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::Particle, Vector2(344.0f, 442.0f));
+		/*GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::Particle, Vector2(344.0f, 442.0f));
 		Camera* cameraComp = camera->AddComponent<Camera>();
 		renderer::mainCamera = cameraComp;
 
 		mPlayer = object::Instantiate<Player>(enums::eLayerType::Player);
 		object::DontDestroyOnLoad(mPlayer);
 		PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>();
-		CircleCollider2D* collider = mPlayer->AddComponent<CircleCollider2D>();
+		BoxCollider2D* collider = mPlayer->AddComponent<BoxCollider2D>();
 		collider->SetOffset(Vector2(-50.0f, -50.0));
 	
 		graphics::Texture* playerTex = Resources::Find<graphics::Texture>(L"Player");
@@ -51,22 +53,11 @@ namespace luke {
 		playerAnimator->GetCompleteEvent(L"FrontGiveWater") = std::bind(&PlayerScript::AttackEffect, plScript);
 		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(300.0f, 250.0f));
 		mPlayer->AddComponent<Rigidbody>();
-
-
-		///CAT
-		Cat* cat = object::Instantiate<Cat>(enums::eLayerType::Animal);
-		//cat->SetActive(true);
-		cat->AddComponent<CatScript>();
-		//cameraComp->SetTarget(cat);
-		graphics::Texture* catTex = Resources::Find<graphics::Texture>(L"Cat");
-		Animator* catAnimator = cat->AddComponent<Animator>();
-		CircleCollider2D* boxCatCollider = cat->AddComponent<CircleCollider2D>();
-		boxCatCollider->SetOffset(Vector2(-50.0f, -50.0f));
-
-		catAnimator->CreateAnimationByFolder(L"MushroomIdle", L"..\\Resources\\Mushroom", Vector2::Zero, 0.1f);
-		catAnimator->PlayAnimation(L"MushroomIdle", true);
-		cat->GetComponent<Transform>()->SetPosition(Vector2(200.0f, 200.0f));
-		cat->GetComponent<Transform>()->SetScale(Vector2(1.0f, 1.0f));
+		Floor* floor = object::Instantiate<Floor>(eLayerType::Floor, Vector2(100.0f, 600.0f));
+		floor->SetName(L"Floor");
+		BoxCollider2D* floorCol = floor->AddComponent<BoxCollider2D>();
+		floorCol->SetSize(Vector2(3.0f, 1.0f));
+		floor->AddComponent<FloorScript>();*/
 
 		// 게임 오브젝트 생성후에 레이어와 게임오브젝트들의 init함수를 호출
 		Scene::Initialize();
@@ -93,6 +84,7 @@ namespace luke {
 	{
 		Scene::OnEnter();
 		CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Animal, true);
+		CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Floor, true);
 	}
 	void PlayScene::OnExit()
 	{

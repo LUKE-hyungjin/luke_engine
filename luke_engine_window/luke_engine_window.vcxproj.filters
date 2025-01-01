@@ -37,6 +37,8 @@
     <ClInclude Include="Tile.h" />
     <ClInclude Include="ToolScene.h" />
     <ClInclude Include="CameraScript.h" />
+    <ClInclude Include="Floor.h" />
+    <ClInclude Include="FloorScript.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Player.cpp">
@@ -60,5 +62,7 @@
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="ToolScene.cpp" />
     <ClCompile Include="CameraScript.cpp" />
+    <ClCompile Include="Floor.cpp" />
+    <ClCompile Include="FloorScript.cpp" />
   </ItemGroup>
 </Project>

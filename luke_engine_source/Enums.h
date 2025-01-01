@@ -9,6 +9,7 @@ namespace luke::enums
 		//character
 		Animal,
 		Player,
+		Floor,
 		Particle,
 		Max = 16,
 	};

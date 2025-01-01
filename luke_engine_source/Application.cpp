@@ -26,7 +26,7 @@ namespace luke {
 		createBuffer(width, height);
 
 		initializeEtc();
-
+		mGraphicDevice = std::make_unique<graphics::GraphicDevice_DX11>();
 		CollisionManager::Initialize();
 		SceneManager::Initialize();
 
@@ -108,7 +108,7 @@ namespace luke {
 		//clear
 		HBRUSH grayBrush = (HBRUSH)CreateSolidBrush(RGB(128, 128, 128));
 		HBRUSH oldBrush = (HBRUSH)SelectObject(mBackHdc, grayBrush);
-		Rectangle(mBackHdc, -1, -1, 1601, 901);
+		::Rectangle(mBackHdc, -1, -1, 1601, 901);
 		(HBRUSH)SelectObject(mBackHdc, oldBrush);
 		DeleteObject(grayBrush);
 	}
