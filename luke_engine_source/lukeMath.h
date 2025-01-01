@@ -44,6 +44,10 @@ namespace luke::math
 			, y(_y)
 		{
 		}
+		Vector2 operator-()
+		{
+			return Vector2(-x, -y);
+		}
 		Vector2 operator+(Vector2 other)
 		{
 			return Vector2(x + other.x, y + other.y);
@@ -70,6 +74,10 @@ namespace luke::math
 		Vector2 operator/(float value)
 		{
 			return Vector2(x / value, y / value);
+		}
+		bool operator==(Vector2 v)
+		{
+			return (x == v.x) && (y == v.y);
 		}
 		void clear()
 		{

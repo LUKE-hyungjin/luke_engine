@@ -20,6 +20,7 @@
 #include "CollisionManager.h"
 #include "Tile.h"
 #include "TilemapRenderer.h"
+#include "Rigidbody.h"
 
 namespace luke {
 	PlayScene::PlayScene() {
@@ -49,6 +50,8 @@ namespace luke {
 		playerAnimator->PlayAnimation(L"Idle", false);
 		playerAnimator->GetCompleteEvent(L"FrontGiveWater") = std::bind(&PlayerScript::AttackEffect, plScript);
 		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(300.0f, 250.0f));
+		mPlayer->AddComponent<Rigidbody>();
+
 
 		///CAT
 		Cat* cat = object::Instantiate<Cat>(enums::eLayerType::Animal);

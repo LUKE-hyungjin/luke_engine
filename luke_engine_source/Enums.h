@@ -31,6 +31,7 @@ namespace luke::enums
 	{
 		Transform,
 		Colider,
+		Rigidbody,
 		Script,
 		SpriteRenderer,
 		Animator,

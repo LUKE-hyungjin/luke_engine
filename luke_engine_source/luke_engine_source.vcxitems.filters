@@ -72,6 +72,7 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)DontDestroyOnLoad.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)TilemapRenderer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Rigidbody.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)GameObject.h">
@@ -151,6 +152,7 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)DontDestroyOnLoad.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)TilemapRenderer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Rigidbody.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
