@@ -75,15 +75,15 @@ namespace luke
 		//mRadian += 5.0f * Time::DeltaTime();
 		//pos += Vector2(1.0f, 2.0f * cosf(mRadian)) * (100.0f * Time::DeltaTime());
 		// 마우스 위치 방향으로 회전후 마우스 위치 이동 ( 벡터의 뺄셈 활용 )
-		Transform* plTr = mPlayer->GetComponent<Transform>();
-		Vector2 dest = mDest - plTr->GetPosition();
-		dest.normalize();
-		float rotDegree = Vector2::Dot(dest, Vector2::Right); //cos세타
-		rotDegree = acosf(rotDegree);
+		//Transform* plTr = mPlayer->GetComponent<Transform>();
+		//Vector2 dest = mDest - plTr->GetPosition();
+		//dest.normalize();
+		//float rotDegree = Vector2::Dot(dest, Vector2::Right); //cos세타
+		//rotDegree = acosf(rotDegree);
 
-		rotDegree = ConvertDegree(rotDegree);
-		pos += dest * (100.0f * Time::DeltaTime());
-		tr->SetPosition(pos);
+		//rotDegree = ConvertDegree(rotDegree);
+		//pos += dest * (100.0f * Time::DeltaTime());
+		//tr->SetPosition(pos);
 		//if (mTime > 3.0f)
 		//{
 		//	mState = CatScript::eState::Walk;

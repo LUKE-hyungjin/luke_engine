@@ -57,6 +57,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Renderer.cpp">
       <Filter>Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)BoxCollider2D.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Collider.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)CircleCollider2D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)GameObject.h">
@@ -124,6 +127,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Renderer.h">
       <Filter>Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)BoxCollider2D.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Collider.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)CircleCollider2D.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">

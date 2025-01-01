@@ -15,6 +15,7 @@
 #include "Animator.h"
 #include "Cat.h"
 #include "CatScript.h"
+#include "BoxCollider2D.h"
 
 namespace luke {
 	PlayScene::PlayScene() {
@@ -31,6 +32,8 @@ namespace luke {
 
 		mPlayer = object::Instantiate<Player>(enums::eLayerType::Particle);
 		PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>();
+		BoxCollider2D* collider = mPlayer->AddComponent<BoxCollider2D>();
+		collider->SetOffset(Vector2(-50.0f, -50.0));
 	
 		graphcis::Texture* playerTex = Resources::Find<graphcis::Texture>(L"Player");
 		Animator* playerAnimator = mPlayer->AddComponent<Animator>();
@@ -43,32 +46,19 @@ namespace luke {
 		mPlayer->GetComponent<Transform>()->SetPosition(Vector2(300.0f, 250.0f));
 
 		///CAT
-		//Cat* cat = object::Instantiate<Cat>(enums::eLayerType::Animal);
-		//cat->AddComponent<CatScript>();
-		////cameraComp->SetTarget(cat);
-		//graphcis::Texture* catTex = Resources::Find<graphcis::Texture>(L"Cat");
-		//Animator* catAnimator = cat->AddComponent<Animator>();
-		/*catAnimator->CreateAnimation(L"DownWalk", catTex
-			, Vector2(0.0f, 0.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-		catAnimator->CreateAnimation(L"RightWalk", catTex
-			, Vector2(0.0f, 32.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-		catAnimator->CreateAnimation(L"UpWalk", catTex
-			, Vector2(0.0f, 64.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-		catAnimator->CreateAnimation(L"LeftWalk", catTex
-			, Vector2(0.0f, 96.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-		catAnimator->CreateAnimation(L"SitDown", catTex
-			, Vector2(0.0f, 128.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-		catAnimator->CreateAnimation(L"Grooming", catTex
-			, Vector2(0.0f, 160.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
-		catAnimator->CreateAnimation(L"LayDown", catTex
-			, Vector2(0.0f, 192.0f), Vector2(32.0f, 32.0f), Vector2::Zero, 4, 0.1f);
+		Cat* cat = object::Instantiate<Cat>(enums::eLayerType::Animal);
+		//cat->SetActive(true);
+		cat->AddComponent<CatScript>();
+		//cameraComp->SetTarget(cat);
+		graphcis::Texture* catTex = Resources::Find<graphcis::Texture>(L"Cat");
+		Animator* catAnimator = cat->AddComponent<Animator>();
+		BoxCollider2D* boxCatCollider = cat->AddComponent<BoxCollider2D>();
+		boxCatCollider->SetOffset(Vector2(-50.0f, -50.0f));
 
-		catAnimator->PlayAnimation(L"SitDown", false);*/
-
-		/*catAnimator->CreateAnimationByFolder(L"MushroomIdle", L"..\\Resources\\Mushroom", Vector2::Zero, 0.1f);
+		catAnimator->CreateAnimationByFolder(L"MushroomIdle", L"..\\Resources\\Mushroom", Vector2::Zero, 0.1f);
 		catAnimator->PlayAnimation(L"MushroomIdle", true);
 		cat->GetComponent<Transform>()->SetPosition(Vector2(200.0f, 200.0f));
-		cat->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));*/
+		cat->GetComponent<Transform>()->SetScale(Vector2(1.0f, 1.0f));
 
 		// 게임 오브젝트 생성후에 레이어와 게임오브젝트들의 init함수를 호출
 		Scene::Initialize();

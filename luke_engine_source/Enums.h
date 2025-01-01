@@ -24,9 +24,10 @@ namespace luke::enums
 	enum class eComponentType
 	{
 		Transform,
+		Colider,
+		Script,
 		SpriteRenderer,
 		Animator,
-		Script,
 		Camera,
 		End,
 	};
