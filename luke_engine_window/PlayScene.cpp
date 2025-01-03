@@ -83,8 +83,8 @@ namespace luke {
 	void PlayScene::OnEnter()
 	{
 		Scene::OnEnter();
-		CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Animal, true);
-		CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Floor, true);
+		//CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Animal, true);
+		//CollisionManager::CollisionLayerCheck(eLayerType::Player, eLayerType::Floor, true);
 	}
 	void PlayScene::OnExit()
 	{

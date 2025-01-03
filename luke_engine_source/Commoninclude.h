@@ -10,6 +10,8 @@
 #include <bitset>
 #include <functional>
 #include <filesystem>
+#include <mutex>
+#include <thread>
 
 
 #include <mmsystem.h>

@@ -8,7 +8,6 @@
 #include "..//luke_engine_source/Texture.h"
 #include "..//luke_engine_source/SceneManager.h"
 #include "..//luke_engine_window/LoadScenes.h"
-#include "..//luke_engine_window/LoadResources.h"
 #include "..//luke_engine_window/ToolScene.h"
 
 
@@ -144,7 +143,6 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
 
    //load scenes
-   luke::LoadResources();
    luke::LoadScene();
    InitToolScene(hInstance);
 

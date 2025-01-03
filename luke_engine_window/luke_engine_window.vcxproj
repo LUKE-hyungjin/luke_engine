@@ -141,7 +141,7 @@
     <ClInclude Include="CatScript.h" />
     <ClInclude Include="Floor.h" />
     <ClInclude Include="FloorScript.h" />
-    <ClInclude Include="LoadResources.h" />
+    <ClInclude Include="LoadingScene.h" />
     <ClInclude Include="LoadScenes.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerScript.h" />
@@ -156,6 +156,7 @@
     <ClCompile Include="CatScript.cpp" />
     <ClCompile Include="Floor.cpp" />
     <ClCompile Include="FloorScript.cpp" />
+    <ClCompile Include="LoadingScene.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerScript.cpp" />
     <ClCompile Include="PlayScene.cpp" />
