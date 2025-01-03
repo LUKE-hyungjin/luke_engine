@@ -88,9 +88,15 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GraphicDevice_DX11.cpp">
       <Filter>Graphics\GraphicsDevice</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)Material.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)Mesh.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)Shader.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Mesh.cpp">
+      <Filter>Resource\Mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Material.cpp">
+      <Filter>Resource\Material</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Shader.cpp">
+      <Filter>Resource\Graphics\Shader</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)GameObject.h">
@@ -186,12 +192,18 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)GraphicDevice_DX11.h">
       <Filter>Graphics\GraphicsDevice</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)Graphics.h">
-      <Filter>Common</Filter>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Mesh.h">
+      <Filter>Resource\Mesh</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)Material.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Mesh.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Shader.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Material.h">
+      <Filter>Resource\Material</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Shader.h">
+      <Filter>Resource\Graphics\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Graphics.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -256,6 +268,18 @@
     </Filter>
     <Filter Include="Graphics\GraphicsDevice">
       <UniqueIdentifier>{01a04fc5-a511-4e2a-849d-60e4702d17db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\Material">
+      <UniqueIdentifier>{80a7cfe4-3ea8-499b-84c0-03d97dffb8fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\Mesh">
+      <UniqueIdentifier>{f6668aad-c66c-41e6-a999-38792db8fdf2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\Graphics">
+      <UniqueIdentifier>{2dca510e-b6e8-48f1-a612-f3b470c51c5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\Graphics\Shader">
+      <UniqueIdentifier>{33492fac-5333-4c71-a929-1bf0088260e1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

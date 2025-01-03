@@ -25,11 +25,12 @@ namespace luke {
 		
 		adjustWindowRect(hwnd, width, height);
 		createBuffer(width, height);
-
 		initializeEtc();
+
 		mGraphicDevice = std::make_unique<graphics::GraphicDevice_DX11>();
 		renderer::Initialize();
 		mGraphicDevice->Initialize();
+
 		CollisionManager::Initialize();
 		SceneManager::Initialize();
 

@@ -1,6 +1,8 @@
 #include "GraphicDevice_DX11.h"
 #include "Application.h"
 #include "Renderer.h"
+#include "Shader.h"
+#include "Resources.h"
 
 extern luke::Application application;
 namespace luke::graphics
@@ -8,6 +10,8 @@ namespace luke::graphics
 	GraphicDevice_DX11::GraphicDevice_DX11()
 	{
 		luke::graphics::GetDevice() = this;
+		if (!(CreateDevice()))
+			assert(NULL && "Create Device Failed!");
 	}
 
 	GraphicDevice_DX11::~GraphicDevice_DX11()
@@ -93,7 +97,7 @@ namespace luke::graphics
 
 		ID3DBlob* errorBlob = nullptr;
 		const std::wstring shaderFilePath = L"..\\Shaders_SOURCE\\";
-		D3DCompileFromFile((shaderFilePath + fileName).c_str(), nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE
+		D3DCompileFromFile((shaderFilePath + fileName + L"VS.hlsl").c_str(), nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE
 			, "main", "vs_5_0", shaderFlags, 0, ppCode, &errorBlob);
 
 		if (errorBlob)
@@ -118,7 +122,7 @@ namespace luke::graphics
 
 		ID3DBlob* errorBlob = nullptr;
 		const std::wstring shaderFilePath = L"..\\Shaders_SOURCE\\";
-		D3DCompileFromFile((shaderFilePath + fileName).c_str(), nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE
+		D3DCompileFromFile((shaderFilePath + fileName + L"PS.hlsl").c_str(), nullptr, D3D_COMPILE_STANDARD_FILE_INCLUDE
 			, "main", "ps_5_0", shaderFlags, 0, ppCode, &errorBlob);
 
 		if (errorBlob)
@@ -154,7 +158,14 @@ namespace luke::graphics
 
 		return true;
 	}
-
+	void GraphicDevice_DX11::BindVS(ID3D11VertexShader* pVertexShader)
+	{
+		mContext->VSSetShader(pVertexShader, 0, 0);
+	}
+	void GraphicDevice_DX11::BindPS(ID3D11PixelShader* pPixelShader)
+	{
+		mContext->PSSetShader(pPixelShader, 0, 0);
+	}
 	void GraphicDevice_DX11::BindConstantBuffer(eShaderStage stage, eCBType type, ID3D11Buffer* buffer)
 	{
 		UINT slot = (UINT)type;
@@ -193,9 +204,6 @@ namespace luke::graphics
 
 	void GraphicDevice_DX11::Initialize()
 	{
-		if (!(CreateDevice()))
-			assert(NULL && "Create Device Failed!");
-
 #pragma region swapchain desc
 		DXGI_SWAP_CHAIN_DESC swapChainDesc = {};
 
@@ -253,13 +261,6 @@ namespace luke::graphics
 
 		if (!(CreateDepthStencilView(mDepthStencil.Get(), nullptr, mDepthStencilView.GetAddressOf())))
 			assert(NULL && "Create depthstencilview failed!");
-
-		if (!(CreateVertexShader(L"TriangleVS.hlsl", &renderer::vsBlob, &renderer::vsShader)))
-			assert(NULL && "Create vertex shader failed!");
-
-		if (!(CreatePixelShader(L"TrianglePS.hlsl", &renderer::psBlob, &renderer::psShader)))
-			assert(NULL && "Create pixel shader failed!");
-
 #pragma region inputLayout Desc
 		D3D11_INPUT_ELEMENT_DESC inputLayoutDesces[2] = {};
 
@@ -277,9 +278,12 @@ namespace luke::graphics
 		inputLayoutDesces[1].SemanticName = "COLOR";
 		inputLayoutDesces[1].SemanticIndex = 0;
 #pragma endregion
+
+		graphics::Shader* triangle = Resources::Find<graphics::Shader>(L"TriangleShader");
+
 		if (!(CreateInputLayout(inputLayoutDesces, 2
-			, renderer::vsBlob->GetBufferPointer()
-			, renderer::vsBlob->GetBufferSize()
+			, triangle->GetVSBlob()->GetBufferPointer()
+			, triangle->GetVSBlob()->GetBufferSize()
 			, &renderer::inputLayouts)))
 			assert(NULL && "Create input layout failed!");
 
@@ -317,7 +321,7 @@ namespace luke::graphics
 		constantBufferDesc.Usage = D3D11_USAGE_DYNAMIC;
 		constantBufferDesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
 
-		Vector4 pos(0.0f, 0.5f, 0.0f, 1.0f);
+		Vector4 pos(0.5f, 0.0f, 0.0f, 1.0f);
 		D3D11_SUBRESOURCE_DATA constantBufferData = {};
 		constantBufferData.pSysMem = &pos;
 #pragma endregion
@@ -349,8 +353,8 @@ namespace luke::graphics
 		mContext->IASetVertexBuffers(0, 1, &renderer::vertexBuffer, &vertexSize, &offset);
 		mContext->IASetIndexBuffer(renderer::indexBuffer, DXGI_FORMAT_R32_UINT, 0);
 
-		mContext->VSSetShader(renderer::vsShader, 0, 0);
-		mContext->PSSetShader(renderer::psShader, 0, 0);
+		graphics::Shader* triangle = Resources::Find<graphics::Shader>(L"TriangleShader");
+		triangle->Bind();
 
 		mContext->Draw(3, 0);
 
