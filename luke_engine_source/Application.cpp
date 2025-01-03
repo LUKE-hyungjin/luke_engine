@@ -1,4 +1,5 @@
 #include "Application.h"
+#include "Renderer.h"
 #include "Input.h"
 #include "LukeTime.h"
 #include "SceneManager.h"
@@ -27,6 +28,7 @@ namespace luke {
 
 		initializeEtc();
 		mGraphicDevice = std::make_unique<graphics::GraphicDevice_DX11>();
+		renderer::Initialize();
 		mGraphicDevice->Initialize();
 		CollisionManager::Initialize();
 		SceneManager::Initialize();
@@ -70,6 +72,7 @@ namespace luke {
 	{
 		SceneManager::Release();
 		Resources::Release();
+		renderer::Release();
 	}
 
 	void Application::adjustWindowRect(HWND hwnd, UINT width, UINT height) {

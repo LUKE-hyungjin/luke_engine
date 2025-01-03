@@ -85,7 +85,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)TilemapRenderer.cpp">
       <Filter>Component\TileMapRenderer</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)GraphicDevice_DX11.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)GraphicDevice_DX11.cpp">
+      <Filter>Graphics\GraphicsDevice</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)GameObject.h">
@@ -178,7 +180,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)TilemapRenderer.h">
       <Filter>Component\TileMapRenderer</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)GraphicDevice_DX11.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)GraphicDevice_DX11.h">
+      <Filter>Graphics\GraphicsDevice</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -237,6 +241,12 @@
     </Filter>
     <Filter Include="Component\TileMapRenderer">
       <UniqueIdentifier>{0e148e94-5eb3-4031-95f8-f9d961527248}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics">
+      <UniqueIdentifier>{86106622-2316-4395-8f8a-e9a318cc89ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Graphics\GraphicsDevice">
+      <UniqueIdentifier>{01a04fc5-a511-4e2a-849d-60e4702d17db}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
