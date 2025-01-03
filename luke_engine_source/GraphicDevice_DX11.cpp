@@ -326,14 +326,14 @@ namespace luke::graphics
 
 		mContext->IASetInputLayout(renderer::inputLayouts);
 		renderer::mesh->Bind();
-		Vector4 pos(0.5f, 0.0f, 0.0f, 1.0f);
+		Vector4 pos(0.0f, 0.0f, 0.0f, 1.0f);
 		renderer::constantBuffers[(UINT)eCBType::Transform].SetData(&pos);
 		renderer::constantBuffers[(UINT)eCBType::Transform].Bind(eShaderStage::VS);
 
-		graphics::Shader* triangle = Resources::Find<graphics::Shader>(L"TriangleShader");
-		triangle->Bind();
+		graphics::Shader* square = Resources::Find<graphics::Shader>(L"TriangleShader");
+		square->Bind();
 
-		mContext->Draw(3, 0);
+		mContext->DrawIndexed(6, 0, 0);
 
 		mSwapChain->Present(1, 0);
 	}
