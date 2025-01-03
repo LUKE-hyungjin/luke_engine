@@ -20,6 +20,10 @@ namespace luke
 	Animation::~Animation()
 	{
 	}
+	HRESULT Animation::Save(const std::wstring& path)
+	{
+		return E_NOTIMPL;
+	}
 	HRESULT Animation::Load(const std::wstring& path)
 	{
 		return E_NOTIMPL;

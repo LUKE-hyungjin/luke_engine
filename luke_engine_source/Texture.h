@@ -14,6 +14,7 @@ namespace luke::graphics
 		static Texture* Create(const std::wstring& name, UINT width, UINT height);
 		Texture();
 		~Texture();
+		virtual HRESULT Save(const std::wstring& path) override;
 		virtual HRESULT Load(const std::wstring& path) override;
 		UINT GetWidth() const { return mWidth; }
 		UINT GetHeight() const { return mHeight; }

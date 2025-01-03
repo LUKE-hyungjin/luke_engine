@@ -7,6 +7,9 @@
     <Filter Include="VS">
       <UniqueIdentifier>{0d0b37df-4f14-4ee8-8e01-63c547ce660e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="LIB">
+      <UniqueIdentifier>{9d812821-f97a-4f7e-93d3-d92c79bab2c8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="$(MSBuildThisFileDirectory)TriangleVS.hlsl">
@@ -17,6 +20,8 @@
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="$(MSBuildThisFileDirectory)ConstantBuffers.hlsli" />
+    <None Include="$(MSBuildThisFileDirectory)ConstantBuffers.hlsli">
+      <Filter>LIB</Filter>
+    </None>
   </ItemGroup>
 </Project>
