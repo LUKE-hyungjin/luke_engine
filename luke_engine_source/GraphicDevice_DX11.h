@@ -22,6 +22,7 @@ namespace luke::graphics
 		bool CreateBuffer(const D3D11_BUFFER_DESC* pDesc, const D3D11_SUBRESOURCE_DATA* pInitialData, ID3D11Buffer** ppBuffer);
 		void BindVS(ID3D11VertexShader* pVertexShader);
 		void BindPS(ID3D11PixelShader* pPixelShader);
+		void BindVertexBuffer(UINT StartSlot, UINT NumBuffers, ID3D11Buffer* const* ppVertexBuffers, const UINT* pStrides, const UINT* pOffsets);
 		void BindConstantBuffer(eShaderStage stage, eCBType type, ID3D11Buffer* buffer);
 		void Initialize();
 		void Draw();

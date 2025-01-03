@@ -49,6 +49,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)LukeTime.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)TilemapRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Transform.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)VertexBuffer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)Animation.cpp" />
@@ -83,5 +84,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)LukeTime.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)TilemapRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Transform.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)VertexBuffer.cpp" />
   </ItemGroup>
 </Project>
