@@ -40,9 +40,9 @@ namespace luke {
 		mActiveScene->LateUpdate();
 		mDontDestroyOnLoad->LateUpdate();
 	}
-	void SceneManager::Render(HDC hdc) {
-		mActiveScene->Render(hdc);
-		mDontDestroyOnLoad->Render(hdc);
+	void SceneManager::Render() {
+		mActiveScene->Render();
+		mDontDestroyOnLoad->Render();
 	}
 
 	void SceneManager::Destroy()

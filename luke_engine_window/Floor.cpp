@@ -23,8 +23,8 @@ namespace luke
 	{
 		GameObject::LateUpdate();
 	}
-	void Floor::Render(HDC hdc)
+	void Floor::Render()
 	{
-		GameObject::Render(hdc);
+		GameObject::Render();
 	}
 }

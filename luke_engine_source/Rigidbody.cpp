@@ -86,7 +86,7 @@ namespace luke
 	void Rigidbody::LateUpdate()
 	{
 	}
-	void Rigidbody::Render(HDC hdc)
+	void Rigidbody::Render()
 	{
 	}
 }

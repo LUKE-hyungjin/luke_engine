@@ -18,7 +18,7 @@ namespace luke {
 	void Component::LateUpdate()
 	{
 	}
-	void Component::Render(HDC hdc)
+	void Component::Render()
 	{
 	}
 }

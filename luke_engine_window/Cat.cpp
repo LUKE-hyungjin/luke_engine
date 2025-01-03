@@ -16,8 +16,8 @@ namespace luke
 	{
 		GameObject::LateUpdate();
 	}
-	void Cat::Render(HDC hdc)
+	void Cat::Render()
 	{
-		GameObject::Render(hdc);
+		GameObject::Render();
 	}
 }

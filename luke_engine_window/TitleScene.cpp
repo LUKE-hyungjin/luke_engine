@@ -28,11 +28,9 @@ namespace luke
 			SceneManager::LoadScene(L"PlayScene");
 		}
 	}
-	void TitleScene::Render(HDC hdc)
+	void TitleScene::Render()
 	{
-		Scene::Render(hdc);
-		wchar_t str[50] = L"Title Scene";
-		TextOut(hdc, 0, 0, str, 11);
+		Scene::Render();
 	}
 	void TitleScene::OnEnter()
 	{

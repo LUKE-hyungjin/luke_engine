@@ -56,10 +56,10 @@ namespace luke
 	{
 	}
 
-	void Animator::Render(HDC hdc)
+	void Animator::Render()
 	{
-		if (mActiveAnimation)
-			mActiveAnimation->Render(hdc);
+		//if (mActiveAnimation)
+		//	mActiveAnimation->Render(hdc);
 	}
 
 	void Animator::CreateAnimation(const std::wstring& name
@@ -86,9 +86,9 @@ namespace luke
 		mAnimations.insert(std::make_pair(name, animation));
 	}
 
-	void Animator::CreateAnimationByFolder(const std::wstring& name, const std::wstring& path, Vector2 offset, float duration)
+	void Animator::CreateAnimationByFolder(/*const std::wstring& name, const std::wstring& path, Vector2 offset, float duration*/)
 	{
-		Animation* animation = nullptr;
+		/*Animation* animation = nullptr;
 		animation = FindAnimation(name);
 		if (animation != nullptr)
 			return;
@@ -117,7 +117,7 @@ namespace luke
 		}
 		CreateAnimation(name, spriteSheet
 			, Vector2(0.0f, 0.0f), Vector2(imageWidth, imageHeight)
-			, offset, fileCount, duration);
+			, offset, fileCount, duration);*/
 	}
 
 	Animation* Animator::FindAnimation(const std::wstring& name)

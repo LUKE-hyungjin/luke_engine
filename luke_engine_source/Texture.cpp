@@ -15,16 +15,6 @@ namespace luke::graphics
 		image->SetName(name);
 		image->SetWidth(width);
 		image->SetHeight(height);
-		HDC hdc = application.GetHdc();
-		HWND hwnd = application.GetHwnd();
-		image->mBitmap = CreateCompatibleBitmap(hdc, width, height);
-		image->mHdc = CreateCompatibleDC(hdc);
-		HBRUSH transparentBrush = (HBRUSH)GetStockObject(NULL_BRUSH);
-		HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, transparentBrush);
-		::Rectangle(image->mHdc, -1, -1, image->GetWidth() + 1, image->GetHeight() + 1);
-		SelectObject(hdc, oldBrush);
-		HBITMAP oldBitmap = (HBITMAP)SelectObject(image->mHdc, image->mBitmap);
-		DeleteObject(oldBitmap);
 		Resources::Insert(name + L"Image", image);
 		return image;
 	}
@@ -42,7 +32,7 @@ namespace luke::graphics
 		std::wstring ext
 			= path.substr(path.find_last_of(L".") + 1);
 		//bmp 일때
-		if (ext == L"bmp")
+		/*if (ext == L"bmp")
 		{
 			mType = eTextureType::Bmp;
 			mBitmap = (HBITMAP)LoadImageW(nullptr, path.c_str(), IMAGE_BITMAP
@@ -70,7 +60,7 @@ namespace luke::graphics
 				return S_FALSE;
 			mWidth = mImage->GetWidth();
 			mHeight = mImage->GetHeight();
-		}
+		}*/
 		return S_OK;
 	}
 }

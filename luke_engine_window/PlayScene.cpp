@@ -25,7 +25,9 @@
 #include "FloorScript.h"
 
 namespace luke {
-	PlayScene::PlayScene() {
+	PlayScene::PlayScene()
+		: mPlayer(nullptr)
+	{
 
 	}
 	PlayScene::~PlayScene() {
@@ -35,11 +37,11 @@ namespace luke {
 		// main camera
 		/*GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::Particle, Vector2(344.0f, 442.0f));
 		Camera* cameraComp = camera->AddComponent<Camera>();
-		renderer::mainCamera = cameraComp;
+		renderer::mainCamera = cameraComp;*/
 
 		mPlayer = object::Instantiate<Player>(enums::eLayerType::Player);
 		object::DontDestroyOnLoad(mPlayer);
-		PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>();
+		/*PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>();
 		BoxCollider2D* collider = mPlayer->AddComponent<BoxCollider2D>();
 		collider->SetOffset(Vector2(-50.0f, -50.0));
 	
@@ -74,9 +76,9 @@ namespace luke {
 			SceneManager::LoadScene(L"TitleScene");
 		}
 	}
-	void PlayScene::Render(HDC hdc)
+	void PlayScene::Render()
 	{
-		Scene::Render(hdc);
+		Scene::Render();
 		//wchar_t str[50] = L"Play Scene";
 		//TextOut(hdc, 0, 0, str, 10);
 	}

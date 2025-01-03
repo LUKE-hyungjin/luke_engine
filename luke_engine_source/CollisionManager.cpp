@@ -17,14 +17,13 @@ namespace luke
 	}
 	void CollisionManager::Update()
 	{
-		Scene* scene = SceneManager::GetActiveScene();
 		for (UINT row = 0; row < (UINT)eLayerType::Max; row++)
 		{
 			for (UINT col = 0; col < (UINT)eLayerType::Max; col++)
 			{
 				if (mCollisionLayerMatrix[row][col] == true)
 				{
-					LayerCollision(scene, (eLayerType)row, (eLayerType)col);
+					LayerCollision((eLayerType)row, (eLayerType)col);
 				}
 			}
 		}
@@ -32,7 +31,7 @@ namespace luke
 	void CollisionManager::LateUpdate()
 	{
 	}
-	void CollisionManager::Render(HDC hdc)
+	void CollisionManager::Render()
 	{
 	}
 	void CollisionManager::Clear()
@@ -56,25 +55,27 @@ namespace luke
 		}
 		mCollisionLayerMatrix[row][col] = enable;
 	}
-	void CollisionManager::LayerCollision(Scene* scene, eLayerType left, eLayerType right)
+	void CollisionManager::LayerCollision(eLayerType left, eLayerType right)
 	{
-		const std::vector<GameObject*>& lefts = SceneManager::GetGameObjects(left);//scene->GetLayer(left)->GetGameObjects();
-		const std::vector<GameObject*>& rights = SceneManager::GetGameObjects(right); // scene->GetLayer(right)->GetGameObjects();
-		for (GameObject* left : lefts)
+		const std::vector<GameObject*>& leftObjs = SceneManager::GetGameObjects(left);//scene->GetLayer(left)->GetGameObjects();
+		const std::vector<GameObject*>& rightObjs = SceneManager::GetGameObjects(right); // scene->GetLayer(right)->GetGameObjects();
+
+		for (GameObject* leftObj : leftObjs)
 		{
-			if (left->IsActive() == false)
+			if (leftObj->IsActive() == false)
 				continue;
-			Collider* leftCol = left->GetComponent<Collider>();
+			Collider* leftCol = leftObj->GetComponent<Collider>();
 			if (leftCol == nullptr)
 				continue;
-			for (GameObject* right : rights)
+
+			for (GameObject* rightObj : rightObjs)
 			{
-				if (right->IsActive() == false)
+				if (rightObj->IsActive() == false)
 					continue;
-				Collider* rightCol = right->GetComponent<Collider>();
+				Collider* rightCol = rightObj->GetComponent<Collider>();
 				if (rightCol == nullptr)
 					continue;
-				if (left == right)
+				if (leftObj == rightObj)
 					continue;
 				ColliderCollision(leftCol, rightCol);
 			}

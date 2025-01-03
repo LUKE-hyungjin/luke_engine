@@ -47,7 +47,7 @@ namespace luke
 			gameObj->LateUpdate();
 		}
 	}
-	void Layer::Render(HDC hdc)
+	void Layer::Render()
 	{
 		for (GameObject* gameObj : mGameObjects)
 		{
@@ -55,7 +55,7 @@ namespace luke
 				continue;
 			if (gameObj->IsActive() == false)
 				continue;
-			gameObj->Render(hdc);
+			gameObj->Render();
 		}
 	}
 	void Layer::Destroy()

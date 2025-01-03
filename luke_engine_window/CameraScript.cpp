@@ -44,7 +44,7 @@ namespace luke
 	void CameraScript::LateUpdate()
 	{
 	}
-	void CameraScript::Render(HDC hdc)
+	void CameraScript::Render()
 	{
 	}
 }

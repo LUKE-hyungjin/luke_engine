@@ -146,9 +146,6 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    luke::LoadScene();
    InitToolScene(hInstance);
 
-   int a = 0;
-   srand((unsigned int)(&a));
-
    return TRUE;
 }
 

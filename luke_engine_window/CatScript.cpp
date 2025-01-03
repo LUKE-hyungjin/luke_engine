@@ -55,7 +55,7 @@ namespace luke
 	void CatScript::LateUpdate()
 	{
 	}
-	void CatScript::Render(HDC hdc)
+	void CatScript::Render()
 	{
 	}
 	void CatScript::sitDown()

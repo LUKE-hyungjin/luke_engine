@@ -24,7 +24,7 @@ namespace luke
 		~Animation();
 		HRESULT Load(const std::wstring& path) override;
 		void Update();
-		void Render(HDC hdc);
+		void Render();
 		void CreateAnimation(const std::wstring& name
 			, graphics::Texture* spriteSheet
 			, Vector2 leftTop
@@ -33,7 +33,7 @@ namespace luke
 			, UINT spriteLegth
 			, float duration);
 		void Reset();
-		bool IsComplete() { return mbComplete; }
+		bool IsComplete() const { return mbComplete; }
 		void SetAnimator(class Animator* animator) { mAnimator = animator; }
 	private:
 		class Animator* mAnimator;
