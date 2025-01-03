@@ -7,16 +7,18 @@ namespace luke
 {
 	LoadingScene::LoadingScene()
 		: mbLoadCompleted(false)
+		, mMutualExclusion()
+		, mResourcesLoadThread()
 	{
 	}
 	LoadingScene::~LoadingScene()
 	{
-		delete mResourcesLoad;
-		mResourcesLoad = nullptr;
+		delete mResourcesLoadThread;
+		mResourcesLoadThread = nullptr;
 	}
 	void LoadingScene::Initialize()
 	{
-		mResourcesLoad = new std::thread(&LoadingScene::resourcesLoad, this, std::ref(mMutex));
+		mResourcesLoadThread = new std::thread(&LoadingScene::resourcesLoad, this, std::ref(mMutualExclusion));
 
 	}
 	void LoadingScene::Update()
@@ -25,7 +27,7 @@ namespace luke
 		{
 			//만약 메인쓰레드가 종료되는데 자식쓰레드가 남아있다면
 			//자식쓰레드를 메인쓰레드에 편입시켜 메인쓰레드가 종료되기전까지 block
-			mResourcesLoad->join();
+			mResourcesLoadThread->join();
 			//메인쓰레드와 완전 분리 시켜 독립적인 쓰레드 운영가능
 			//mResourcesLoad->detach();
 			SceneManager::LoadScene(L"PlayScene");

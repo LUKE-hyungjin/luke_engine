@@ -88,6 +88,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)GraphicDevice_DX11.cpp">
       <Filter>Graphics\GraphicsDevice</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Material.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Mesh.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Shader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)GameObject.h">
@@ -186,6 +189,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Graphics.h">
       <Filter>Common</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Material.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Mesh.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Shader.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
