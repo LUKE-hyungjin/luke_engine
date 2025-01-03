@@ -98,6 +98,8 @@
       <Filter>Resource\Graphics\Shader</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)VertexBuffer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)ConstantBuffer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)IndexBuffer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)GameObject.h">
@@ -206,6 +208,8 @@
       <Filter>Graphics</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)VertexBuffer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)ConstantBuffer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)IndexBuffer.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
